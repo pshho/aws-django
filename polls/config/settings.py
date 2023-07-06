@@ -27,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     ".ap-northeast-2.compute.amazonaws.com",
-    '3.37.74.149'
+    '3.37.74.149/'
 ]
 
 os.environ["DJANGO_ALLOW_ASYNC_UNSAFE"] = 'true'
