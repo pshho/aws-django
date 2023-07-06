@@ -26,7 +26,8 @@ SECRET_KEY = 'django-insecure-$v-v3-@t!_+9x=vyz3l_9mm6c+cs^0n^$^_!-h-_*y68#va)y0
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    ".ap-northeast-2.compute.amazonaws.com"
+    ".ap-northeast-2.compute.amazonaws.com",
+    '3.37.74.149'
 ]
 
 os.environ["DJANGO_ALLOW_ASYNC_UNSAFE"] = 'true'
