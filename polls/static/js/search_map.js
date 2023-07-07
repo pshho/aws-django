@@ -362,10 +362,6 @@ $(document).ready(function() {
                         break;
                 }
 
-                if (count1 === 500) {
-                    break;
-                }
-
             };
 
             for (var i=0; i<data.jrent.length; i++) {
@@ -461,10 +457,6 @@ $(document).ready(function() {
                         break;
                     default:
                         break;
-                }
-
-                if (count2 === 1000) {
-                    break;
                 }
 
             };
