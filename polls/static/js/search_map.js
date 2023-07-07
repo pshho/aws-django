@@ -361,7 +361,9 @@ $(document).ready(function() {
                     default:
                         break;
                 }
-
+                if (count1 === 700) {
+                    break;
+                };
             };
 
             for (var i=0; i<data.jrent.length; i++) {
@@ -458,7 +460,9 @@ $(document).ready(function() {
                     default:
                         break;
                 }
-
+                if (count2 === 1500) {
+                    break;
+                };
             };
 
             // 마커 클러스터링 업데이트
