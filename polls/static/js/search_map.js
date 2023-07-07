@@ -361,7 +361,7 @@ $(document).ready(function() {
                     default:
                         break;
                 }
-                if (count1 === 700) {
+                if (count1 === 900) {
                     break;
                 };
             };
@@ -460,13 +460,24 @@ $(document).ready(function() {
                     default:
                         break;
                 }
-                if (count2 === 1500) {
+                if (count2 === 1800) {
                     break;
                 };
             };
 
             // 마커 클러스터링 업데이트
             updateMarkerClustering(all_markers);
+
+            // updateMarkers 스크롤 시 함수 실행
+            naver.maps.Event.addListener(map, 'zoom_changed', function() {
+                updateMarkers(map, all_markers);
+                infoWindow.close();
+            });
+
+            naver.maps.Event.addListener(map, 'dragend', function() {
+                updateMarkers(map, all_markers);
+                infoWindow.close();
+            });
 
         },
         error: function() {
@@ -522,18 +533,6 @@ $(document).ready(function() {
             }
         })
     })
-
-    // updateMarkers 스크롤 시 함수 실행
-    naver.maps.Event.addListener(map, 'zoom_changed', function() {
-        updateMarkers(map, all_markers);
-        infoWindow.close();
-    });
-
-    naver.maps.Event.addListener(map, 'dragend', function() {
-        updateMarkers(map, all_markers);
-        infoWindow.close();
-    });
-
 })
 
 
