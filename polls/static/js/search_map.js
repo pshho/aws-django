@@ -76,6 +76,7 @@ function searchAddressToCoordinate(address, title) {
             point = new naver.maps.Point(item.x, item.y);
 
         map.setCenter(point);
+        map.setZoom(14);
     });
 }
 
@@ -243,248 +244,6 @@ $(document).ready(function() {
     searchAddress(queryValue);
     searchAddressToCoordinate('서울 강남구 테헤란로5길 24 장연빌딩', '강남 그린컴퓨터아카데미');
 
-    $.ajax({
-        type: 'get',
-        url: "map_convert/",
-        dataType: 'json',
-        success: function(data) {
-            var count1 = 0;
-            var count2 = 0;
-            var lat;
-            var lng;
-            var text;
-            var iconUrl;
-            var marker;
-
-            let jrentList = data.jrent;
-            let realList = data.real;
-            let datalist = $('#map_search_list');
-
-            $.each(jrentList, function(index, item) {
-                const option = $('<option></option>');
-                option.attr('value', item.bdnm + ' ' + item.gunm + ' ' + item.dongnm + ' ' + item.bn + '-' + item.sbn);
-                datalist.append(option)
-            });
-
-            $.each(realList, function(index, item) {
-                const option = $('<option></option>');
-                option.attr('value', item.bdnm + ' ' + item.gunm + ' ' + item.dongnm + ' ' + item.bn + '-' + item.sbn);
-                datalist.append(option)
-            });
-
-            for (var i=0; i<data.real.length; i++) {
-
-                var text_list = [];
-
-                switch (data.real[i].bdusa) {
-                    case '연립다세대':
-                        iconUrl = "/static/images/map/icon2.png";
-                        lat = data.real[i].lat;
-                        lng = data.real[i].lng;
-                        text = data.real[i].bdnm;
-
-                        text_list.push(data.real[i].year);
-                        text_list.push(data.real[i].gunm + ' ' + data.real[i].dongnm + ' ' + data.real[i].bn + '-' + data.real[i].sbn);
-                        text_list.push(data.real[i].bdnm);
-                        text_list.push(data.real[i].cont);
-                        text_list.push(data.real[i].authr);
-                        text_list.push(data.real[i].depos);
-                        text_list.push(data.real[i].spa);
-                        text_list.push(data.real[i].spa2);
-                        text_list.push(data.real[i].fl);
-                        text_list.push(data.real[i].cancel);
-                        text_list.push(data.real[i].bdcont);
-                        text_list.push(data.real[i].bdusa);
-                        text_list.push(data.real[i].noti);
-                        text_list.push(data.real[i].distin);
-
-                        marker = createMarker(lat, lng, iconUrl, text, text_list);
-
-                        markerGroup1.push(marker);
-                        all_markers.push(marker);
-                        count1++;
-                        break;
-                    case '아파트':
-                        iconUrl = "/static/images/map/icon4.png";
-                        lat = data.real[i].lat;
-                        lng = data.real[i].lng;
-                        text = data.real[i].bdnm;
-
-                        text_list.push(data.real[i].year);
-                        text_list.push(data.real[i].gunm + ' ' + data.real[i].dongnm + ' ' + data.real[i].bn + '-' + data.real[i].sbn);
-                        text_list.push(data.real[i].bdnm);
-                        text_list.push(data.real[i].cont);
-                        text_list.push(data.real[i].authr);
-                        text_list.push(data.real[i].depos);
-                        text_list.push(data.real[i].spa);
-                        text_list.push(data.real[i].spa2);
-                        text_list.push(data.real[i].fl);
-                        text_list.push(data.real[i].cancel);
-                        text_list.push(data.real[i].bdcont);
-                        text_list.push(data.real[i].bdusa);
-                        text_list.push(data.real[i].noti);
-                        text_list.push(data.real[i].distin);
-
-                        marker = createMarker(lat, lng, iconUrl, text, text_list);
-
-                        markerGroup2.push(marker);
-                        all_markers.push(marker);
-                        count1++;
-                        break;
-                    case '오피스텔':
-                        iconUrl = "/static/images/map/icon3.png";
-                        lat = data.real[i].lat;
-                        lng = data.real[i].lng;
-                        text = data.real[i].bdnm;
-
-                        text_list.push(data.real[i].year);
-                        text_list.push(data.real[i].gunm + ' ' + data.real[i].dongnm + ' ' + data.real[i].bn + '-' + data.real[i].sbn);
-                        text_list.push(data.real[i].bdnm);
-                        text_list.push(data.real[i].cont);
-                        text_list.push(data.real[i].authr);
-                        text_list.push(data.real[i].depos);
-                        text_list.push(data.real[i].spa);
-                        text_list.push(data.real[i].spa2);
-                        text_list.push(data.real[i].fl);
-                        text_list.push(data.real[i].cancel);
-                        text_list.push(data.real[i].bdcont);
-                        text_list.push(data.real[i].bdusa);
-                        text_list.push(data.real[i].noti);
-                        text_list.push(data.real[i].distin);
-
-                        marker = createMarker(lat, lng, iconUrl, text, text_list);
-
-                        markerGroup3.push(marker);
-                        all_markers.push(marker);
-                        count1++;
-                        break;
-                    default:
-                        break;
-                }
-                if (count1 === 900) {
-                    break;
-                };
-            };
-
-            for (var i=0; i<data.jrent.length; i++) {
-                var text_list = [];
-
-                switch (data.jrent[i].bdusa) {
-                    case '연립다세대':
-                        iconUrl = "/static/images/map/icon2.png";
-                        lat = data.jrent[i].lat;
-                        lng = data.jrent[i].lng;
-                        text = data.jrent[i].bdnm;
-
-                        text_list.push(data.jrent[i].year);
-                        text_list.push(data.jrent[i].gunm + ' ' + data.jrent[i].dongnm + ' ' + data.jrent[i].bn + '-' + data.jrent[i].sbn);
-                        text_list.push(data.jrent[i].bdnm);
-                        text_list.push(data.jrent[i].cont);
-                        text_list.push(data.jrent[i].distin2);
-                        text_list.push(data.jrent[i].depos);
-                        text_list.push(data.jrent[i].depos2);
-                        text_list.push(data.jrent[i].spa);
-                        text_list.push(data.jrent[i].fl);
-                        text_list.push(data.jrent[i].bdcont);
-                        text_list.push(data.jrent[i].bdusa);
-                        text_list.push(data.jrent[i].newcont);
-                        text_list.push(data.jrent[i].newcont2);
-                        text_list.push(data.jrent[i].olddepos);
-                        text_list.push(data.jrent[i].olddepos2);
-                        text_list.push(data.jrent[i].distin);
-
-                        marker = createMarker(lat, lng, iconUrl, text, text_list);
-
-                        markerGroup1.push(marker);
-                        all_markers.push(marker);
-                        count2++;
-                        break;
-                    case '아파트':
-                        iconUrl = "/static/images/map/icon4.png";
-                        lat = data.jrent[i].lat;
-                        lng = data.jrent[i].lng;
-                        text = data.jrent[i].bdnm;
-
-                        text_list.push(data.jrent[i].year);
-                        text_list.push(data.jrent[i].gunm + ' ' + data.jrent[i].dongnm + ' ' + data.jrent[i].bn + '-' + data.jrent[i].sbn);
-                        text_list.push(data.jrent[i].bdnm);
-                        text_list.push(data.jrent[i].cont);
-                        text_list.push(data.jrent[i].distin2);
-                        text_list.push(data.jrent[i].depos);
-                        text_list.push(data.jrent[i].depos2);
-                        text_list.push(data.jrent[i].spa);
-                        text_list.push(data.jrent[i].fl);
-                        text_list.push(data.jrent[i].bdcont);
-                        text_list.push(data.jrent[i].bdusa);
-                        text_list.push(data.jrent[i].newcont);
-                        text_list.push(data.jrent[i].newcont2);
-                        text_list.push(data.jrent[i].olddepos);
-                        text_list.push(data.jrent[i].olddepos2);
-                        text_list.push(data.jrent[i].distin);
-
-                        marker = createMarker(lat, lng, iconUrl, text, text_list);
-
-                        markerGroup2.push(marker);
-                        all_markers.push(marker);
-                        count2++;
-                        break;
-                    case '오피스텔':
-                        iconUrl = "/static/images/map/icon3.png";
-                        lat = data.jrent[i].lat;
-                        lng = data.jrent[i].lng;
-                        text = data.jrent[i].bdnm;
-
-                        text_list.push(data.jrent[i].year);
-                        text_list.push(data.jrent[i].gunm + ' ' + data.jrent[i].dongnm + ' ' + data.jrent[i].bn + '-' + data.jrent[i].sbn);
-                        text_list.push(data.jrent[i].bdnm);
-                        text_list.push(data.jrent[i].cont);
-                        text_list.push(data.jrent[i].distin2);
-                        text_list.push(data.jrent[i].depos);
-                        text_list.push(data.jrent[i].depos2);
-                        text_list.push(data.jrent[i].spa);
-                        text_list.push(data.jrent[i].fl);
-                        text_list.push(data.jrent[i].bdcont);
-                        text_list.push(data.jrent[i].bdusa);
-                        text_list.push(data.jrent[i].newcont);
-                        text_list.push(data.jrent[i].newcont2);
-                        text_list.push(data.jrent[i].olddepos);
-                        text_list.push(data.jrent[i].olddepos2);
-                        text_list.push(data.jrent[i].distin);
-
-                        marker = createMarker(lat, lng, iconUrl, text, text_list);
-
-                        markerGroup3.push(marker);
-                        all_markers.push(marker);
-                        count2++;
-                        break;
-                    default:
-                        break;
-                }
-                if (count2 === 1800) {
-                    break;
-                };
-            };
-
-            // 마커 클러스터링 업데이트
-            updateMarkerClustering(all_markers);
-
-            // updateMarkers 스크롤 시 함수 실행
-            naver.maps.Event.addListener(map, 'zoom_changed', function() {
-                updateMarkers(map, all_markers);
-                infoWindow.close();
-            });
-
-            naver.maps.Event.addListener(map, 'dragend', function() {
-                updateMarkers(map, all_markers);
-                infoWindow.close();
-            });
-
-        },
-        error: function() {
-            console.log('에러')
-        }
-    });
-
     // 미리 만든 4개의 배열
     var markerGroups = {
         group1: markerGroup1,
@@ -492,48 +251,289 @@ $(document).ready(function() {
         group3: markerGroup3,
         group4: markerGroup4
     };
-
-    $('.map_grouping input[type="radio"]').click(function() {
-        var selectedMarkerGroupId = this.value;
-
-        // 선택된 마커 그룹 배열 가져오기
-        var selectedMarkerGroup = markerGroups[selectedMarkerGroupId];
-
-        // 현재 상태 확인
-        var isMarkersVisible = selectedMarkerGroup.some(function(marker) {
-            return marker.getVisible();
-        });
-
-        // 선택된 마커 그룹의 마커 보이기/숨기기 토글
-        selectedMarkerGroup.forEach(function(marker) {
-            marker.setVisible(!isMarkersVisible);
-        });
-
-    });
-
-    $('form').on('submit', function(e) {
-        e.preventDefault();
-        var value = $('#map_address').val();
-
-        $.ajax({
-            type: "get",
-            url: "map_search/",
-            dataType: "json",
-            data: {query:value},
-            success: function(data) {
-                if(data.items.length > 0) {
-                    searchAddressToCoordinate(data.items[0].address, data.items[0].title);
-                }else {
-                    searchAddressToCoordinate(value, value);
-                }
-                $('#map_address').val('');
-            },
-            error: function() {
-                console.log('확인 불가');
-            }
-        })
-    })
 })
 
+$.ajax({
+    type: 'get',
+    url: "map_convert/",
+    dataType: 'json',
+    success: function(data) {
+        var count1 = 0;
+        var count2 = 0;
+        var lat;
+        var lng;
+        var text;
+        var iconUrl;
+        var marker;
 
+        let jrentList = data.jrent;
+        let realList = data.real;
+        let datalist = $('#map_search_list');
 
+        $.each(jrentList, function(index, item) {
+            const option = $('<option></option>');
+            option.attr('value', item.bdnm + ' ' + item.gunm + ' ' + item.dongnm + ' ' + item.bn + '-' + item.sbn);
+            datalist.append(option)
+        });
+
+        $.each(realList, function(index, item) {
+            const option = $('<option></option>');
+            option.attr('value', item.bdnm + ' ' + item.gunm + ' ' + item.dongnm + ' ' + item.bn + '-' + item.sbn);
+            datalist.append(option)
+        });
+
+        for (var i=0; i<data.real.length; i++) {
+
+            var text_list = [];
+
+            switch (data.real[i].bdusa) {
+                case '연립다세대':
+                    iconUrl = "/static/images/map/icon2.png";
+                    lat = data.real[i].lat;
+                    lng = data.real[i].lng;
+                    text = data.real[i].bdnm;
+
+                    text_list.push(data.real[i].year);
+                    text_list.push(data.real[i].gunm + ' ' + data.real[i].dongnm + ' ' + data.real[i].bn + '-' + data.real[i].sbn);
+                    text_list.push(data.real[i].bdnm);
+                    text_list.push(data.real[i].cont);
+                    text_list.push(data.real[i].authr);
+                    text_list.push(data.real[i].depos);
+                    text_list.push(data.real[i].spa);
+                    text_list.push(data.real[i].spa2);
+                    text_list.push(data.real[i].fl);
+                    text_list.push(data.real[i].cancel);
+                    text_list.push(data.real[i].bdcont);
+                    text_list.push(data.real[i].bdusa);
+                    text_list.push(data.real[i].noti);
+                    text_list.push(data.real[i].distin);
+
+                    marker = createMarker(lat, lng, iconUrl, text, text_list);
+
+                    markerGroup1.push(marker);
+                    all_markers.push(marker);
+                    count1++;
+                    break;
+                case '아파트':
+                    iconUrl = "/static/images/map/icon4.png";
+                    lat = data.real[i].lat;
+                    lng = data.real[i].lng;
+                    text = data.real[i].bdnm;
+
+                    text_list.push(data.real[i].year);
+                    text_list.push(data.real[i].gunm + ' ' + data.real[i].dongnm + ' ' + data.real[i].bn + '-' + data.real[i].sbn);
+                    text_list.push(data.real[i].bdnm);
+                    text_list.push(data.real[i].cont);
+                    text_list.push(data.real[i].authr);
+                    text_list.push(data.real[i].depos);
+                    text_list.push(data.real[i].spa);
+                    text_list.push(data.real[i].spa2);
+                    text_list.push(data.real[i].fl);
+                    text_list.push(data.real[i].cancel);
+                    text_list.push(data.real[i].bdcont);
+                    text_list.push(data.real[i].bdusa);
+                    text_list.push(data.real[i].noti);
+                    text_list.push(data.real[i].distin);
+
+                    marker = createMarker(lat, lng, iconUrl, text, text_list);
+
+                    markerGroup2.push(marker);
+                    all_markers.push(marker);
+                    count1++;
+                    break;
+                case '오피스텔':
+                    iconUrl = "/static/images/map/icon3.png";
+                    lat = data.real[i].lat;
+                    lng = data.real[i].lng;
+                    text = data.real[i].bdnm;
+
+                    text_list.push(data.real[i].year);
+                    text_list.push(data.real[i].gunm + ' ' + data.real[i].dongnm + ' ' + data.real[i].bn + '-' + data.real[i].sbn);
+                    text_list.push(data.real[i].bdnm);
+                    text_list.push(data.real[i].cont);
+                    text_list.push(data.real[i].authr);
+                    text_list.push(data.real[i].depos);
+                    text_list.push(data.real[i].spa);
+                    text_list.push(data.real[i].spa2);
+                    text_list.push(data.real[i].fl);
+                    text_list.push(data.real[i].cancel);
+                    text_list.push(data.real[i].bdcont);
+                    text_list.push(data.real[i].bdusa);
+                    text_list.push(data.real[i].noti);
+                    text_list.push(data.real[i].distin);
+
+                    marker = createMarker(lat, lng, iconUrl, text, text_list);
+
+                    markerGroup3.push(marker);
+                    all_markers.push(marker);
+                    count1++;
+                    break;
+                default:
+                    break;
+            }
+
+            if (count1 === 1000) {
+                break;
+            }
+
+        };
+
+        for (var i=0; i<data.jrent.length; i++) {
+            var text_list = [];
+
+            switch (data.jrent[i].bdusa) {
+                case '연립다세대':
+                    iconUrl = "/static/images/map/icon2.png";
+                    lat = data.jrent[i].lat;
+                    lng = data.jrent[i].lng;
+                    text = data.jrent[i].bdnm;
+
+                    text_list.push(data.jrent[i].year);
+                    text_list.push(data.jrent[i].gunm + ' ' + data.jrent[i].dongnm + ' ' + data.jrent[i].bn + '-' + data.jrent[i].sbn);
+                    text_list.push(data.jrent[i].bdnm);
+                    text_list.push(data.jrent[i].cont);
+                    text_list.push(data.jrent[i].distin2);
+                    text_list.push(data.jrent[i].depos);
+                    text_list.push(data.jrent[i].depos2);
+                    text_list.push(data.jrent[i].spa);
+                    text_list.push(data.jrent[i].fl);
+                    text_list.push(data.jrent[i].bdcont);
+                    text_list.push(data.jrent[i].bdusa);
+                    text_list.push(data.jrent[i].newcont);
+                    text_list.push(data.jrent[i].newcont2);
+                    text_list.push(data.jrent[i].olddepos);
+                    text_list.push(data.jrent[i].olddepos2);
+                    text_list.push(data.jrent[i].distin);
+
+                    marker = createMarker(lat, lng, iconUrl, text, text_list);
+
+                    markerGroup1.push(marker);
+                    all_markers.push(marker);
+                    count2++;
+                    break;
+                case '아파트':
+                    iconUrl = "/static/images/map/icon4.png";
+                    lat = data.jrent[i].lat;
+                    lng = data.jrent[i].lng;
+                    text = data.jrent[i].bdnm;
+
+                    text_list.push(data.jrent[i].year);
+                    text_list.push(data.jrent[i].gunm + ' ' + data.jrent[i].dongnm + ' ' + data.jrent[i].bn + '-' + data.jrent[i].sbn);
+                    text_list.push(data.jrent[i].bdnm);
+                    text_list.push(data.jrent[i].cont);
+                    text_list.push(data.jrent[i].distin2);
+                    text_list.push(data.jrent[i].depos);
+                    text_list.push(data.jrent[i].depos2);
+                    text_list.push(data.jrent[i].spa);
+                    text_list.push(data.jrent[i].fl);
+                    text_list.push(data.jrent[i].bdcont);
+                    text_list.push(data.jrent[i].bdusa);
+                    text_list.push(data.jrent[i].newcont);
+                    text_list.push(data.jrent[i].newcont2);
+                    text_list.push(data.jrent[i].olddepos);
+                    text_list.push(data.jrent[i].olddepos2);
+                    text_list.push(data.jrent[i].distin);
+
+                    marker = createMarker(lat, lng, iconUrl, text, text_list);
+
+                    markerGroup2.push(marker);
+                    all_markers.push(marker);
+                    count2++;
+                    break;
+                case '오피스텔':
+                    iconUrl = "/static/images/map/icon3.png";
+                    lat = data.jrent[i].lat;
+                    lng = data.jrent[i].lng;
+                    text = data.jrent[i].bdnm;
+
+                    text_list.push(data.jrent[i].year);
+                    text_list.push(data.jrent[i].gunm + ' ' + data.jrent[i].dongnm + ' ' + data.jrent[i].bn + '-' + data.jrent[i].sbn);
+                    text_list.push(data.jrent[i].bdnm);
+                    text_list.push(data.jrent[i].cont);
+                    text_list.push(data.jrent[i].distin2);
+                    text_list.push(data.jrent[i].depos);
+                    text_list.push(data.jrent[i].depos2);
+                    text_list.push(data.jrent[i].spa);
+                    text_list.push(data.jrent[i].fl);
+                    text_list.push(data.jrent[i].bdcont);
+                    text_list.push(data.jrent[i].bdusa);
+                    text_list.push(data.jrent[i].newcont);
+                    text_list.push(data.jrent[i].newcont2);
+                    text_list.push(data.jrent[i].olddepos);
+                    text_list.push(data.jrent[i].olddepos2);
+                    text_list.push(data.jrent[i].distin);
+
+                    marker = createMarker(lat, lng, iconUrl, text, text_list);
+
+                    markerGroup3.push(marker);
+                    all_markers.push(marker);
+                    count2++;
+                    break;
+                default:
+                    break;
+            }
+
+            if (count2 === 2000) {
+                break;
+            }
+
+        };
+
+        // 마커 클러스터링 업데이트
+        updateMarkerClustering(all_markers);
+
+        // updateMarkers 스크롤 시 함수 실행
+        naver.maps.Event.addListener(map, 'zoom_changed', function() {
+            updateMarkers(map, all_markers);
+            infoWindow.close();
+        });
+
+        naver.maps.Event.addListener(map, 'dragend', function() {
+            updateMarkers(map, all_markers);
+            infoWindow.close();
+        });
+
+    },
+    error: function() {
+        console.log('에러')
+    }
+});
+$('form').on('submit', function(e) {
+    e.preventDefault();
+    var value = $('#map_address').val();
+
+    $.ajax({
+        type: "get",
+        url: "map_search/",
+        dataType: "json",
+        data: {query:value},
+        success: function(data) {
+            if(data.items.length > 0) {
+                searchAddressToCoordinate(data.items[0].address, data.items[0].title);
+            }else {
+                searchAddressToCoordinate(value, value);
+            }
+            $('#map_address').val('');
+        },
+        error: function() {
+            console.log('확인 불가');
+        }
+    })
+})
+$('.map_grouping input[type="radio"]').click(function() {
+    var selectedMarkerGroupId = this.value;
+
+    // 선택된 마커 그룹 배열 가져오기
+    var selectedMarkerGroup = markerGroups[selectedMarkerGroupId];
+
+    // 현재 상태 확인
+    var isMarkersVisible = selectedMarkerGroup.some(function(marker) {
+        return marker.getVisible();
+    });
+
+    // 선택된 마커 그룹의 마커 보이기/숨기기 토글
+    selectedMarkerGroup.forEach(function(marker) {
+        marker.setVisible(!isMarkersVisible);
+    });
+
+});

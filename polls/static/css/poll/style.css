@@ -114,6 +114,7 @@ a:hover {
     transform: translate(calc(230px * -0.75), 0);
     transition: .5s;
     z-index:1000;
+    box-sizing: border-box;
 }
 
 .side-bar:hover {
@@ -220,6 +221,7 @@ a:hover {
     height: 180px;
     padding: 10px;
     border-bottom: 4px solid #f8b62c;
+    box-sizing: border-box;
 }
 
 .header-bar a {
@@ -268,7 +270,7 @@ a:hover {
 .header-bar > .header-side-login {
     position: absolute;
     top: 15px;
-    right: 25px;
+    right: 0;
 
 }
 
@@ -297,6 +299,7 @@ a:hover {
 .header-bar > .header-menu {
     position: absolute;
     bottom: 0;
+    left: 0;
     height: 30px;
     display: flex;
     justify-content: center;

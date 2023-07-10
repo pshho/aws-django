@@ -1,8 +1,9 @@
 import aiohttp
 import asyncio
+import json
+import requests
 
 from datetime import datetime, timedelta
-
 from django.shortcuts import render
 
 # 이전 달, 현재 연도 당월, 다음달
@@ -116,7 +117,7 @@ async def koreaCalendar(request):
     return render(request, 'calendar/calendar.html')
 
 # 달력 iframe 출력
-async def koreaCalendar_iframe(request, title):
+def koreaCalendar_iframe(request, title):
     if request.method == 'GET':
 
         url1 = 'https://api.odcloud.kr/api/ApplyhomeInfoDetailSvc/v1/getAPTLttotPblancDetail?'
@@ -137,92 +138,87 @@ async def koreaCalendar_iframe(request, title):
         reqUrl5 = url5 + page + perPage + serviceKey
         reqUrl6 = url6 + page + perPage + serviceKey
 
-        tasks = [
-            fetch_data(reqUrl1),
-            fetch_data(reqUrl2),
-            fetch_data(reqUrl3),
-            fetch_data(reqUrl4),
-            fetch_data(reqUrl5),
-            fetch_data(reqUrl6),
-        ]
-
-        # 비동기로 모든 작업 실행
-        responses = await asyncio.gather(*tasks)
-
-        json_data1, json_data2, json_data3, json_data4, json_data5, json_data6 = responses
-
         # 주택관리번호 추출
-        house_manage = 0
         data_list = []
         data_list2 = []
 
+        response4 = requests.get(reqUrl4)
+        json_data4 = json.loads(response4.text)
+        response5 = requests.get(reqUrl5)
+        json_data5 = json.loads(response5.text)
+        response6 = requests.get(reqUrl6)
+        json_data6 = json.loads(response6.text)
+        def save_data1(house_manage):
+            for data in json_data4['data']:
+                if house_manage == data['HOUSE_MANAGE_NO']:
+                    data_list2.append(data)
+
+        def save_data2(house_manage):
+            for data in json_data5['data']:
+                if house_manage == data['HOUSE_MANAGE_NO']:
+                    data_list2.append(data)
+
+        def save_data3(house_manage):
+            for data in json_data6['data']:
+                if house_manage == data['HOUSE_MANAGE_NO']:
+                    data_list2.append(data)
+
+        response1 = requests.get(reqUrl1)
+        json_data1 = json.loads(response1.text)
         # APT 분양정보 청약 접수 시작일
         for data in json_data1['data']:
             if title == data['HOUSE_NM']:
                 if f'{now_year}-{month}' in data['RCEPT_BGNDE']:
                     if data not in data_list:
-                        house_manage = data['HOUSE_MANAGE_NO']
                         data_list.append(data)
                 elif f'{now_year}-{month2}' in data['RCEPT_BGNDE']:
                     if data not in data_list:
-                        house_manage = data['HOUSE_MANAGE_NO']
                         data_list.append(data)
                 elif f'{previous_year}-{previous_month_str}' in data['RCEPT_BGNDE']:
                     if data not in data_list:
-                        house_manage = data['HOUSE_MANAGE_NO']
                         data_list.append(data)
 
+        response2 = requests.get(reqUrl2)
+        json_data2 = json.loads(response2.text)
         for data in json_data2['data']:
             if title == data['HOUSE_NM']:
                 if f'{now_year}-{month}' in data['SUBSCRPT_RCEPT_BGNDE']:
                     if data not in data_list:
-                        house_manage = data['HOUSE_MANAGE_NO']
                         data_list.append(data)
                 elif f'{now_year}-{month2}' in data['SUBSCRPT_RCEPT_BGNDE']:
                     if data not in data_list:
-                        house_manage = data['HOUSE_MANAGE_NO']
                         data_list.append(data)
                 elif f'{previous_year}-{previous_month_str}' in data['SUBSCRPT_RCEPT_BGNDE']:
                     if data not in data_list:
-                        house_manage = data['HOUSE_MANAGE_NO']
                         data_list.append(data)
 
+        response3 = requests.get(reqUrl3)
+        json_data3 = json.loads(response3.text)
         for data in json_data3['data']:
             if title == data['HOUSE_NM']:
                 if f'{now_year}-{month}' in data['SUBSCRPT_RCEPT_BGNDE']:
                     if data not in data_list:
-                        house_manage = data['HOUSE_MANAGE_NO']
                         data_list.append(data)
                 elif f'{now_year}-{month2}' in data['SUBSCRPT_RCEPT_BGNDE']:
                     if data not in data_list:
-                        house_manage = data['HOUSE_MANAGE_NO']
                         data_list.append(data)
                 elif f'{previous_year}-{previous_month_str}' in data['SUBSCRPT_RCEPT_BGNDE']:
                     if data not in data_list:
-                        house_manage = data['HOUSE_MANAGE_NO']
                         data_list.append(data)
 
-        for data in json_data4['data']:
-            if house_manage == data['HOUSE_MANAGE_NO']:
-                if data not in data_list2:
-                    data_list2.append(data)
-
-        for data in json_data5['data']:
-            if house_manage == data['HOUSE_MANAGE_NO']:
-                if data not in data_list2:
-                    data_list2.append(data)
-
-        for data in json_data6['data']:
-            if house_manage == data['HOUSE_MANAGE_NO']:
-                if data not in data_list2:
-                    data_list2.append(data)
+        # 데이터를 저장하는 함수들을 data_list이 채워진 후에 호출합니다.
+        for data in data_list:
+            house_manage = data['HOUSE_MANAGE_NO']
+            save_data1(house_manage)
+            save_data2(house_manage)
+            save_data3(house_manage)
 
         rowspan = len(data_list2) + 1
 
         context = {
-            'data_list':data_list,
-            'data_list2':data_list2,
-            'rowspan':rowspan
+            'data_list': data_list,
+            'data_list2': data_list2,
+            'rowspan': rowspan
         }
 
         return render(request, 'calendar/calendar_iframe.html', context)
