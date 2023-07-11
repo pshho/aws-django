@@ -306,6 +306,10 @@ a:hover {
     width: 100%;
 }
 
+.header-bar > .header-menu > img {
+    display: none;
+}
+
 .header-bar > .header-menu > ul > li {
     display: inline-block;
     position: relative;
@@ -362,7 +366,6 @@ a:hover {
 .header-bar > .header-menu > ul > li:hover > ul {
     visibility: visible;
     z-index: 9999;
-
 }
 
 .header-bar > .header-menu > ul > li > ul > li {
@@ -389,6 +392,8 @@ a:hover {
 }
 
 /* header-menu 끝 */
+
+
 
 /* index 시작 */
 .main_index {
@@ -872,6 +877,8 @@ ul > li {
 .main_index > .main_top_index > .main_login_register > ul > li > .mypage_view:hover {
     text-decoration: underline;
 }
+
+
 /* index 끝 */
 
 /* 반응형 시작 */
