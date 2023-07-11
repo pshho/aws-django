@@ -113,8 +113,5 @@
         };
     });
 
-    // 페이지 로드 시 링크를 막는 함수 호출
-    window.addEventListener('load', blockMobileLinks);
-    // 창 크기가 변경될 때 링크를 막는 함수 호출
-    window.addEventListener('resize', blockMobileLinks);
+    blockMobileLinks()
 </script>

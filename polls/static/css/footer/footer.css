@@ -31,9 +31,8 @@ footer #bottomMenu {
 
 /* 반응형 시작 */
 @media screen and (max-width: 510px) {
-    #smart {
-        position: fixed;
-        bottom: 0;
-        right: 0;
+    footer {
+        width: 100%;
+        font-size: 0.8rem;
     }
 }
