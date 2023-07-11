@@ -25,6 +25,10 @@
         font-size: 0.9rem;
     }
 
+    .board_list .division {
+        font-size: 13px;
+    }
+
     .board_list .top .title {
         text-indent: 0;
         font-size: 0.9rem;
@@ -38,13 +42,17 @@
         font-size: 0.9rem;
     }
 
+    .board_list .top .division {
+        font-size: 0.9rem;
+    }
+
     .board_page a {
         width: 26px;
         height: 26px;
     }
 
     .board_page a.bt {
-        padding-top: 7px;
+        padding: 5px 4px;
     }
 
     .board_page a.num {
