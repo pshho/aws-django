@@ -33,7 +33,7 @@
                 </a>
             </li>
             <li>
-                <a href="{% url 'koreaCalendar:subCalendar' %}">
+                <a href="#">
                     <span>청약</span>
                 </a>
                 <ul class="header-score">
@@ -47,7 +47,7 @@
                 </a>
             </li>
             <li>
-                <a href="{% url 'community:free' %}">
+                <a href="#">
                     <span>커뮤니티</span>
                 </a>
                 <ul>
@@ -58,7 +58,7 @@
                 </ul>
             </li>
             <li>
-                <a href="{% url 'notice:notice' %}">
+                <a href="#">
                     <span>고객서비스</span>
                 </a>
                 <ul>
@@ -70,18 +70,6 @@
     </section>
 </header>
 <script>
-    // 모바일 크기일 때 링크를 막는 함수
-    function blockMobileLinks() {
-        if (window.innerWidth <= 510) { // 모바일 크기 조건 설정
-            var links = document.querySelectorAll('.reactLink');
-            for (var i = 0; i < links.length; i++) {
-                links[i].addEventListener('click', function(event) {
-                    event.preventDefault(); // 링크 클릭 이벤트를 막음
-                });
-            }
-        }
-    }
-
     // li가 하나씩 나타나는 애니메이션
     function animateOpacity() {
         var elements = document.querySelectorAll('.header-menu ul li');
@@ -112,6 +100,4 @@
             toggle = 0;
         };
     });
-
-    blockMobileLinks()
 </script>
