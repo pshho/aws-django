@@ -226,13 +226,17 @@ a{text-decoration: none; color: black;}
     border-right:1px solid #000;
 }
 
-
-
-
-
 .tab-links a:hover {
   background-color: #ddd;
   transition: 0.3s;
   text-decoration:underline;
 }
 /* 탭 설정 끝 */
+
+/* 반응형 시작 */
+@media screen and (max-width: 510px) {
+    footer {
+        width: 100%;
+        font-size: 0.8rem;
+    }
+}

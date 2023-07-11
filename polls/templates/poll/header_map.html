@@ -25,6 +25,7 @@
         </ul>
     </section>
     <section class="header-menu">
+        <img src="{% static 'images/menubar/header_button.png' %}" alt="메뉴 아이콘" id="header-menu-btn">
         <ul>
             <li>
                 <a href="{% url 'poll:index' %}">
@@ -68,3 +69,52 @@
         </ul>
     </section>
 </header>
+<script>
+    // 모바일 크기일 때 링크를 막는 함수
+    function blockMobileLinks() {
+        if (window.innerWidth <= 510) { // 모바일 크기 조건 설정
+            var links = document.querySelectorAll('.reactLink');
+            for (var i = 0; i < links.length; i++) {
+                links[i].addEventListener('click', function(event) {
+                    event.preventDefault(); // 링크 클릭 이벤트를 막음
+                });
+            }
+        }
+    }
+
+    // li가 하나씩 나타나는 애니메이션
+    function animateOpacity() {
+        var elements = document.querySelectorAll('.header-menu ul li');
+        var delay = 70; // 각 요소의 변경 지연 시간 (밀리초)
+        var duration = 1000; // 애니메이션 지속 시간 (밀리초)
+
+        elements.forEach(function (element, index) {
+        var delayTime = index * delay;
+        setTimeout(function () {
+              element.style.transition = 'opacity ' + duration + 'ms';
+              element.style.opacity = 1;
+            }, delayTime);
+        });
+    }
+
+    let header_menu = document.getElementById('header-menu-btn');
+    let nodes = document.querySelectorAll('.header-bar > .header-menu > ul > li');
+    let toggle = 0;
+
+    header_menu.addEventListener('click', function() {
+        if (toggle === 0) {
+            animateOpacity();
+            toggle = 1;
+        } else if (toggle === 1) {
+            nodes.forEach(function(node) {
+                node.style.opacity = 0;
+            });
+            toggle = 0;
+        };
+    });
+
+    // 페이지 로드 시 링크를 막는 함수 호출
+    window.addEventListener('load', blockMobileLinks);
+    // 창 크기가 변경될 때 링크를 막는 함수 호출
+    window.addEventListener('resize', blockMobileLinks);
+</script>

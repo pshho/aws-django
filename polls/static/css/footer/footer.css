@@ -28,3 +28,12 @@ footer #bottomMenu {
     list-style-type: none;
     margin-bottom: 50px;
 }
+
+/* 반응형 시작 */
+@media screen and (max-width: 510px) {
+    #smart {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+    }
+}
