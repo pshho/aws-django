@@ -948,6 +948,7 @@ ul > li {
     }
 
     .header-bar > .header-menu > ul {
+        display: none;
         position: absolute;
         top: 50px;
         width: 100%;
