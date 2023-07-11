@@ -2,8 +2,12 @@
     .board_wrap {
         width: 100%;
         min-width: 320px;
-        padding: 0 30px;
+        padding: 0 5px;
         box-sizing: border-box;
+    }
+
+    .board_title strong {
+        font-size: 2rem;
     }
 
     .board_list .num,
@@ -18,10 +22,20 @@
 
     .board_list .title {
         text-indent: 10px;
+        font-size: 0.9rem;
     }
 
     .board_list .top .title {
         text-indent: 0;
+        font-size: 0.9rem;
+    }
+
+    .board_list .top .date {
+        font-size: 0.9rem;
+    }
+
+    .board_list .top .recommend {
+        font-size: 0.9rem;
     }
 
     .board_page a {
@@ -35,6 +49,10 @@
 
     .board_page a.num {
         padding-top: 6px;
+    }
+
+    .board_view .title {
+        font-size: 1.4rem;
     }
 
     .board_view .info dl {
@@ -52,7 +70,7 @@
 
     .board_view .info dl dt,
     .board_view .info dl dd {
-        font-size: 1.2rem;
+        font-size: 0.8rem;
     }
 
     .board_write .info dl {
@@ -77,5 +95,10 @@
     .board_write .info input[type="text"],
     .board_write .info input[type="password"] {
         width: 100%;
+    }
+
+    .custombutton {
+        width: 10%;
+        font-size: 0.8rem;
     }
 }
