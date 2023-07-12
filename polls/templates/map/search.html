@@ -102,9 +102,7 @@
         }
 
         .map_real_estate_detail > .map_grouping > label > input {
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
+            display: none;
             margin: 0;
         }
 
@@ -150,14 +148,10 @@
 
             .map_real_estate_detail > .map_grouping {
                 font-size: 0.8rem;
-                padding: 3px;
             }
 
             .map_real_estate_detail > .map_search_view > ul {
                 font-size: 0.8rem;
-            }
-
-            .map_real_estate_detail > .map_search_view > ul > li {
                 display: none;
             }
 
@@ -223,17 +217,56 @@
         // 지도 마우스 커서 포인트
         map.setCursor('pointer');
 
-        $('#smart_phone_map').on('click', function () {
-            var currentHeight = $('.map_real_estate_detail').css('height').replace('%', '');
+        var elmnt = document.querySelector('#smart_phone_map');
+        var elmnt2 = document.querySelector('.map_real_estate_detail');
+        var elmnt3 = document.querySelector('.map_real_estate');
+        var elmnt4 = document.querySelector('#map_search_print');
+        function dragElement(elmnt) {
+            var pos1 = 0, pos2 = 0;
+            elmnt.onmousedown = dragMouseDown;
 
-            if (currentHeight < '150px') {
-                $('.map_real_estate_detail').css('height', '60%');
-                $('.map_real_estate_detail > .map_search_view > ul > li').css('display', 'block');
-            } else {
-                $('.map_real_estate_detail').css('height', '15%');
-                $('.map_real_estate_detail > .map_search_view > ul > li').css('display', 'none');
+            var maxHeight = elmnt3.offsetHeight * 0.8; // 최대 높이 설정
+            var minHeight = elmnt3.offsetHeight * 0.15; // 최소 높이 설정
+            var startHeight = elmnt3.offsetHeight * 1.2; // 드래그 시작 시 높이
+
+            function dragMouseDown(e) {
+                e = e || window.event;
+                e.preventDefault();
+                document.onmouseup = closeDragElement;
+                document.onmousemove = elementDrag;
             }
-        });
+
+            function elementDrag(e) {
+                e = e || window.event;
+                e.preventDefault();
+                pos2 = e.clientY;
+                pos1 = startHeight - pos2;
+                var newHeight = pos1;
+                console.log(startHeight);
+
+                // 높이 제한 설정
+                if (newHeight > maxHeight) {
+                    newHeight = maxHeight;
+                    elmnt4.style.display = 'block';
+                } else if (newHeight < minHeight) {
+                    newHeight = minHeight;
+                }
+
+                if (newHeight < maxHeight) {
+                    elmnt4.style.display = 'none';
+                }
+
+                elmnt2.style.height = newHeight + "px";
+            }
+
+            function closeDragElement() {
+                document.onmouseup = null;
+                document.onmousemove = null;
+            }
+        }
+
+        // 기능 실행
+        dragElement(elmnt);
     </script>
 {% include 'poll/footer.html' %}
 </body>

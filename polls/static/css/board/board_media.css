@@ -1,4 +1,4 @@
-@media screen and (max-width: 1000px) and (-webkit-min-device-pixel-ratio:0) {
+@media screen and (max-width: 1200px) and (-webkit-min-device-pixel-ratio:0) {
     .board_wrap {
         width: 100%;
         min-width: 200px;
