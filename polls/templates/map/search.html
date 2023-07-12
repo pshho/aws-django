@@ -217,60 +217,15 @@
         // 지도 마우스 커서 포인트
         map.setCursor('pointer');
 
-        var elmnt = document.querySelector('#smart_phone_map');
-        var elmnt2 = document.querySelector('.map_real_estate_detail');
-        var elmnt3 = document.querySelector('.map_real_estate');
-        var elmnt4 = document.querySelector('#map_search_print');
-        function dragElement(elmnt) {
-            var pos1 = 0, pos2 = 0;
-            elmnt.addEventListener('touchstart', dragTouchStart, { passive: false });
-
-            var maxHeight = elmnt3.offsetHeight * 0.8; // 최대 높이 설정
-            var minHeight = elmnt3.offsetHeight * 0.15; // 최소 높이 설정
-            var startHeight = elmnt3.offsetHeight * 1.2; // 드래그 시작 시 높이
-
-            function dragTouchStart(e) {
-                e = e || window.event;
-                e.preventDefault();
-                elmnt.addEventListener('touchmove', elementDrag, { passive: false });
-                elmnt.addEventListener('touchend', closeDragElement, { passive: false });
-
-                var touch = e.touches[0];
-                pos2 = touch.clientY;
-                pos1 = startHeight - pos2;
+        $('#smart_phone_map').on('click', function () {
+            if ($('.map_real_estate_detail').css('height') < '200px') {
+                $('.map_real_estate_detail').css('height', '80%');
+                $('.map_real_estate_detail > .map_search_view > ul').css('display', 'block');
+            } else {
+                $('.map_real_estate_detail').css('height', '15%');
+                $('.map_real_estate_detail > .map_search_view > ul').css('display', 'none');
             }
-
-            function elementDrag(e) {
-                e = e || window.event;
-                e.preventDefault();
-                var touch = e.touches[0];
-                pos2 = touch.clientY;
-                var newHeight = pos1;
-                console.log(startHeight);
-
-                // 높이 제한 설정
-                if (newHeight > maxHeight) {
-                    newHeight = maxHeight;
-                    elmnt4.style.display = 'block';
-                } else if (newHeight < minHeight) {
-                    newHeight = minHeight;
-                }
-
-                if (newHeight < maxHeight) {
-                    elmnt4.style.display = 'none';
-                }
-
-                elmnt2.style.height = newHeight + "px";
-            }
-
-            function closeDragElement() {
-                elmnt.removeEventListener('touchmove', elementDrag, { passive: false });
-                elmnt.removeEventListener('touchend', closeDragElement, { passive: false });
-            }
-        }
-
-        // 기능 실행
-        dragElement(elmnt);
+        });
     </script>
 {% include 'poll/footer.html' %}
 </body>
