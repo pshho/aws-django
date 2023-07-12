@@ -60,38 +60,29 @@ async def koreaCalendar(request):
         # APT 분양정보 청약 접수 시작일
         for data in json_data1['data']:
             if f'{now_year}-{month}' in data['RCEPT_BGNDE']:
-                if data not in data_list:
-                    data_list.append(data)
+                data_list.append(data)
             elif f'{now_year}-{month2}' in data['RCEPT_BGNDE']:
-                if data not in data_list:
-                    data_list.append(data)
+                data_list.append(data)
             elif f'{previous_year}-{previous_month_str}' in data['RCEPT_BGNDE']:
-                if data not in data_list:
-                    data_list.append(data)
+                data_list.append(data)
 
         # 오피스텔/도시형/민간임대 분양정보 청약 접수 시작일
         for data in json_data2['data']:
             if f'{now_year}-{month}' in data['SUBSCRPT_RCEPT_BGNDE']:
-                if data not in data_list:
-                    data_list.append(data)
+                data_list.append(data)
             elif f'{now_year}-{month2}' in data['SUBSCRPT_RCEPT_BGNDE']:
-                if data not in data_list:
-                    data_list.append(data)
+                data_list.append(data)
             elif f'{previous_year}-{previous_month_str}' in data['SUBSCRPT_RCEPT_BGNDE']:
-                if data not in data_list:
-                    data_list.append(data)
+                data_list.append(data)
 
         # APT 무순위/잔여세대 일반 공급 접수 시작일
         for data in json_data3['data']:
             if f'{now_year}-{month}' in data['SUBSCRPT_RCEPT_BGNDE']:
-                if data not in data_list:
-                    data_list.append(data)
+                data_list.append(data)
             elif f'{now_year}-{month2}' in data['SUBSCRPT_RCEPT_BGNDE']:
-                if data not in data_list:
-                    data_list.append(data)
+                data_list.append(data)
             elif f'{previous_year}-{previous_month_str}' in data['SUBSCRPT_RCEPT_BGNDE']:
-                if data not in data_list:
-                    data_list.append(data)
+                data_list.append(data)
 
         results = []
 

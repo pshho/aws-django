@@ -17,6 +17,39 @@
         .calendar-box > h3 {
             font-size: 2rem;
         }
+
+        .calendar_frame {
+            width: 50%;
+            height: 90%;
+        }
+
+        @media screen and (max-width: 510px) {
+            .calendar-box {
+                width: 95%;
+                height: 100%;
+                padding: 10px 5px;
+            }
+
+            .calendar-box > h3 {
+                margin-bottom: 10px;
+            }
+
+            .fc .fc-toolbar {
+                width: 100%;
+            }
+
+            .fc .fc-button {
+                padding: 3px 2px;
+            }
+
+            .fc .fc-toolbar-title {
+                font-size: 1em;
+            }
+
+            .calendar_frame {
+                width: 95%;
+            }
+        }
     </style>
     <script src="{% static 'js/fullcalendar-6.1.8/fullcalendar-6.1.8/dist/index.global.js' %}"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.js"
@@ -40,7 +73,7 @@
             headerToolbar: {
                 left: 'prevYear,prev,next,nextYear today',
                 center: 'title',
-                right: 'dayGridMonth,dayGridWeek,dayGridDay'
+                right: 'dayGridMonth,dayGridWeek'
             },
 
             selectable: true,   // 달력 일자 선택 기능
@@ -63,14 +96,13 @@
                     var $iframe = $('<iframe>', {
                         src: url,
                         css: {
-                            width: '50%',
-                            height: '90%',
                             position: 'fixed',
                             top: '50%',
                             left: '50%',
                             transform: 'translate(-50%, -50%)',
                             zIndex: '9999',
-                        }
+                        },
+                        class: 'calendar_frame',
                     });
 
                     $body.append($iframe)
@@ -94,8 +126,7 @@
             events: Object.values({{ context|safe }}).map(item => ({
                 title: item.title,
                 start: item.start
-            }))
-
+            })),
         });
         calendar.render();
 

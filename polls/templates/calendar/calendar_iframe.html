@@ -6,8 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
     <style>
+        @font-face {
+            font-family: 'GangwonEdu_OTFBoldA';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
         body {
             background: white;
+            font-family: 'GangwonEdu_OTFBoldA';
         }
 
         .calendar_detail {
@@ -94,6 +102,13 @@
 
         .calendar-table > tbody > tr > .calendar-table-td {
             background-color: #ccc;
+        }
+
+        /* 반응형 시작 */
+        @media screen and (max-width: 510px) {
+            .calendar-close-btn2 {
+                padding: 5px 15px;
+            }
         }
     </style>
     <script src="https://code.jquery.com/jquery-3.7.0.js"
