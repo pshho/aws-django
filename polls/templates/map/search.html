@@ -150,6 +150,7 @@
 
             .map_real_estate_detail > .map_grouping {
                 font-size: 0.8rem;
+                padding: 3px;
             }
 
             .map_real_estate_detail > .map_search_view > ul {
@@ -225,7 +226,7 @@
         $('#smart_phone_map').on('click', function () {
             var currentHeight = $('.map_real_estate_detail').css('height').replace('%', '');
 
-            if (currentHeight < '20%px') {
+            if (currentHeight < '150px') {
                 $('.map_real_estate_detail').css('height', '60%');
                 $('.map_real_estate_detail > .map_search_view > ul > li').css('display', 'block');
             } else {
