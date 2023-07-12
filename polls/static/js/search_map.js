@@ -130,7 +130,7 @@ function updateMarkerClustering(markers) {
     map: map,
     markers: markers,
     disableClickZoom: true,
-    gridSize: 200,
+    gridSize: 150,
     icons: [htmlMarker1, htmlMarker2, htmlMarker3, htmlMarker4, htmlMarker5],
     indexGenerator: [10, 100, 200, 500, 1000],
     stylingFunction: function(clusterMarker, count) {
@@ -251,6 +251,23 @@ $(document).ready(function() {
         group3: markerGroup3,
         group4: markerGroup4
     };
+
+    $('.map_grouping input[type="radio"]').click(function() {
+        var selectedMarkerGroupId = this.value;
+
+        // 선택된 마커 그룹 배열 가져오기
+        var selectedMarkerGroup = markerGroups[selectedMarkerGroupId];
+
+        // 현재 상태 확인
+        var isMarkersVisible = selectedMarkerGroup.some(function(marker) {
+            return marker.getVisible();
+        });
+
+        // 선택된 마커 그룹의 마커 보이기/숨기기 토글
+        selectedMarkerGroup.forEach(function(marker) {
+            marker.setVisible(!isMarkersVisible);
+        });
+    });
 })
 
 $.ajax({
@@ -492,12 +509,12 @@ $.ajax({
             updateMarkers(map, all_markers);
             infoWindow.close();
         });
-
     },
     error: function() {
         console.log('에러')
     }
 });
+
 $('form').on('submit', function(e) {
     e.preventDefault();
     var value = $('#map_address').val();
@@ -520,20 +537,3 @@ $('form').on('submit', function(e) {
         }
     })
 })
-$('.map_grouping input[type="radio"]').click(function() {
-    var selectedMarkerGroupId = this.value;
-
-    // 선택된 마커 그룹 배열 가져오기
-    var selectedMarkerGroup = markerGroups[selectedMarkerGroupId];
-
-    // 현재 상태 확인
-    var isMarkersVisible = selectedMarkerGroup.some(function(marker) {
-        return marker.getVisible();
-    });
-
-    // 선택된 마커 그룹의 마커 보이기/숨기기 토글
-    selectedMarkerGroup.forEach(function(marker) {
-        marker.setVisible(!isMarkersVisible);
-    });
-
-});

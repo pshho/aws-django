@@ -3,11 +3,12 @@
 {% load static %}
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
 
     <style>
         html, body {
-            height: 100%;
+            height: 85%;
         }
 
         .map_real_estate {
@@ -38,7 +39,7 @@
             position: absolute;
             top: 0;
             left: 0;
-            z-index: 9999;
+            z-index: 49;
         }
 
         .map_real_estate_btn > .map_address {
@@ -128,6 +129,44 @@
             margin: 10px auto;
         }
 
+        @media screen and (max-width: 510px) {
+            .map_real_estate {
+                width: 90%;
+                margin: 30px auto 0 auto;
+                height: 90%;
+            }
+
+            .map_real_estate_btn {
+                width: 100%;
+                top: -30px;
+                margin: 0 5px;
+            }
+
+            .map_real_estate_detail {
+                width: 100%;
+                top: auto;
+                bottom: 0;
+                height: 20%;
+            }
+
+            .map_real_estate_detail > .map_search_view > ul {
+                font-size: 0.8rem;
+            }
+
+            .map_real_estate_detail > .map_search_view > ul > li {
+                display: none;
+            }
+
+            .smart_phone_map {
+                width: 50px;
+                height: 10px;
+                margin: 0 auto;
+                background: url(../../static/images/menubar/가로바.png) no-repeat center;
+                background-size: contain;
+                cursor: pointer;
+            }
+        }
+
     </style>
     <script type="text/javascript"
             src="https://code.jquery.com/jquery-3.7.0.js"
@@ -151,6 +190,7 @@
             </div>
         </form>
         <aside class="map_real_estate_detail">
+            <div id="smart_phone_map" class="smart_phone_map"></div>
             <div class="map_grouping">
                 <label for="map_group1"><input type="radio" id="map_group1" class="map_group" value="group1">연립다세대</label>
                 <label for="map_group4"><input type="radio" id="map_group4" class="map_group" value="group2">아파트</label>
@@ -178,6 +218,16 @@
 
         // 지도 마우스 커서 포인트
         map.setCursor('pointer');
+
+        $('#smart_phone_map').on('click', function () {
+            if ($('.map_real_estate_detail').css('height') < '25%') {
+                $('.map_real_estate_detail').css('height', '80%');
+                $('.map_real_estate_detail > .map_search_view > ul > li').css('display', 'block');
+            } else {
+                $('.map_real_estate_detail').css('height', '20%');
+                $('.map_real_estate_detail > .map_search_view > ul > li').css('display', 'none');
+            }
+        });
     </script>
 {% include 'poll/footer.html' %}
 </body>
