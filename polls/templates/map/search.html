@@ -8,11 +8,11 @@
 
     <style>
         html, body {
-            height: 85%;
+            height: 100%;
         }
 
         .map_real_estate {
-            height: 100%;
+            height: 85%;
             position: relative;
         }
 
@@ -133,7 +133,6 @@
             .map_real_estate {
                 width: 90%;
                 margin: 30px auto 0 auto;
-                height: 90%;
             }
 
             .map_real_estate_btn {
@@ -146,7 +145,7 @@
                 width: 100%;
                 top: auto;
                 bottom: 0;
-                height: 20%;
+                height: 15%;
             }
 
             .map_real_estate_detail > .map_search_view > ul {
@@ -220,11 +219,11 @@
         map.setCursor('pointer');
 
         $('#smart_phone_map').on('click', function () {
-            if ($('.map_real_estate_detail').css('height') < '25%') {
-                $('.map_real_estate_detail').css('height', '80%');
+            if ($('.map_real_estate_detail').css('height') < '20%') {
+                $('.map_real_estate_detail').css('height', '60%');
                 $('.map_real_estate_detail > .map_search_view > ul > li').css('display', 'block');
             } else {
-                $('.map_real_estate_detail').css('height', '20%');
+                $('.map_real_estate_detail').css('height', '15%');
                 $('.map_real_estate_detail > .map_search_view > ul > li').css('display', 'none');
             }
         });
