@@ -273,7 +273,7 @@ a{text-decoration: none; color: inherit;}
 /* 반응형 시작 - 모바일 */
 @media (max-width: 600px) {
     .list_wrap{
-        width: 400px;
+        width: 370px;
         margin-bottom: 100px
         padding: 0;
         background: white;
