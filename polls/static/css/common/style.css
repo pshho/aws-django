@@ -15,6 +15,7 @@
 body {
     overflow: hidden;
     font-family: 'GangwonEdu_OTFBoldA';
+    box-sizing: border-box;
 }
 
 /* 전체 스타일 */
@@ -57,7 +58,7 @@ body {
 }
 
 .login_signin_container {
-    width: 40%;
+    width: 39.5%;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -126,8 +127,12 @@ body {
     font-size: 1.8rem;
 }
 
+.login_container > form {
+    width: 70%;
+}
+
 .login_container > form > div > input {
-    width: 330px;
+    width: 100%;
     height: 40px;
     margin: 4px 0;
     padding-left: 25px;
@@ -210,7 +215,7 @@ body {
 }
 
 .signinup-box2 > div {
-    width: 60%;
+    width: 59.5%;
     height: 100%;
     text-align: center;
     display: flex;
@@ -323,4 +328,14 @@ section > form > .error_data {
     justify-content: space-evenly;
     flex: 1;
     color: red;
+}
+
+@media screen and (max-width: 1050px) {
+    .signinup-box {
+        width: 97%;
+    }
+
+    .signinup-box2 {
+        width: 97%;
+    }
 }
