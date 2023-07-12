@@ -170,17 +170,3 @@ X_FRAME_OPTIONS = 'ALLOWALL' # iframe 제거 테스트
 
 LOGOUT_REDIRECT_URL = '/' #로그아웃 성공시 루트로 이동
 
-# 카카오 보안키 AqE1DNwZGKujmxIFxjhQ1YjwO5LtXSKr
-# client_id API키 붙힘
-
-SOCIALACCOUNT_PROVIDERS = {
-    'kakao': {
-        'APP': {
-            'client_id': 'f6722e19255300b732178afbbe57ea66',
-            'secret': 'AqE1DNwZGKujmxIFxjhQ1YjwO5LtXSKr',
-            'key': '',
-            'scope': 'profile',
-        }
-    }
-}
-
