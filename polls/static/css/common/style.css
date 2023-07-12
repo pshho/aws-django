@@ -13,7 +13,6 @@
 #signup {text-align: center;}
 
 body {
-    overflow: hidden;
     font-family: 'GangwonEdu_OTFBoldA';
 }
 
@@ -31,7 +30,6 @@ body {
     -webkit-box-shadow: 8px 8px 12px #d1d9e6, -8px -8px 12px white;
     box-shadow: 8px 8px 12px #d1d9e6, -8px -8px 12px white;
     z-index: 11;
-    overflow: hidden;
 }
 
 /* 로그인 스타일*/
@@ -56,7 +54,6 @@ body {
     border-top-left-radius: 12px;
     border-bottom-left-radius: 12px;
     border: 1px solid #eee;
-    overflow: hidden;
 }
 
 .login_signin_container {
@@ -78,7 +75,6 @@ body {
     border-bottom-right-radius: 12px;
     border: 1px solid #333;
     color: white;
-    overflow: hidden;
 }
 
 .login_signin_container > h1 {
@@ -202,7 +198,6 @@ body {
     box-shadow: 8px 8px 12px #d1d9e6, -8px -8px 12px white;
     border-radius: 12px;
     opacity: 0;
-    overflow: hidden;
 }
 
 .login_signup_container {
@@ -224,7 +219,6 @@ body {
     z-index: 99;
     color: white;
     border: 1px solid #333;
-    overflow: hidden;
 }
 
 .signinup-box2 > div {
@@ -241,7 +235,6 @@ body {
     outline: none;
     border: none;
     border: 1px solid #eee;
-    overflow: hidden;
 }
 
 /* 회원가입 스타일 전체 */
