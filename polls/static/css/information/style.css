@@ -234,7 +234,7 @@ a{text-decoration: none; color: black;}
 /* 탭 설정 끝 */
 
 /* 반응형 시작 */
-@media screen and (max-width: 510px) {
+@media screen and (max-width: 1200px) {
     #smart {
         position: fixed;
         bottom: 0;

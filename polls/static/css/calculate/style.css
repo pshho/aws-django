@@ -38,7 +38,7 @@ input[type="submit"]:hover {background-color: rgb(28, 79, 79);}
 h1 {text-align: center; color: rgb(28, 79, 79); margin: 2%}
 
 /* 반응형 시작 */
-@media screen and (max-width: 510px) {
+@media screen and (max-width: 1200px) {
     #subscription {
         margin: 1% 5% auto;
         padding: 10px;
