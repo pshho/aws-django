@@ -217,12 +217,13 @@
         // 지도 마우스 커서 포인트
         map.setCursor('pointer');
 
+        var elmnt = document.querySelector('#smart_phone_map');
         var elmnt2 = document.querySelector('.map_real_estate_detail');
         var elmnt3 = document.querySelector('.map_real_estate');
         var elmnt4 = document.querySelector('#map_search_print');
         function dragElement(elmnt) {
             var pos1 = 0, pos2 = 0;
-            elmnt2.addEventListener('touchstart', dragTouchStart, { passive: false });
+            elmnt.addEventListener('touchstart', dragTouchStart, { passive: false });
 
             var maxHeight = elmnt3.offsetHeight * 0.8; // 최대 높이 설정
             var minHeight = elmnt3.offsetHeight * 0.15; // 최소 높이 설정
@@ -231,8 +232,8 @@
             function dragTouchStart(e) {
                 e = e || window.event;
                 e.preventDefault();
-                elmnt2.addEventListener('touchmove', elementDrag, { passive: false });
-                elmnt2.addEventListener('touchend', closeDragElement, { passive: false });
+                elmnt.addEventListener('touchmove', elementDrag, { passive: false });
+                elmnt.addEventListener('touchend', closeDragElement, { passive: false });
 
                 var touch = e.touches[0];
                 pos2 = touch.clientY;
@@ -263,13 +264,13 @@
             }
 
             function closeDragElement() {
-                elmnt2.removeEventListener('touchmove', elementDrag, { passive: false });
-                elmnt2.removeEventListener('touchend', closeDragElement, { passive: false });
+                elmnt.removeEventListener('touchmove', elementDrag, { passive: false });
+                elmnt.removeEventListener('touchend', closeDragElement, { passive: false });
             }
         }
 
         // 기능 실행
-        dragElement(elmnt2);
+        dragElement(elmnt);
     </script>
 {% include 'poll/footer.html' %}
 </body>
