@@ -240,4 +240,21 @@ a{text-decoration: none; color: black;}
         bottom: 0;
         right: 0;
     }
+
+    #smart h4 {
+        font-size: 16px;
+    }
+
+    #content {
+        padding: 5px;
+    }
+
+    .tab-links li a {
+        font-size: 14px;
+    }
+
+    .information_box ol li.on p {
+        font-size: 15px;
+        padding: 15px 50px;
+    }
 }
