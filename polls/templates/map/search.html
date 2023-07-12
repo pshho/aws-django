@@ -223,24 +223,28 @@
         var elmnt4 = document.querySelector('#map_search_print');
         function dragElement(elmnt) {
             var pos1 = 0, pos2 = 0;
-            elmnt.onmousedown = dragMouseDown;
+            elmnt.addEventListener('touchstart', dragTouchStart, { passive: false });
 
             var maxHeight = elmnt3.offsetHeight * 0.8; // 최대 높이 설정
             var minHeight = elmnt3.offsetHeight * 0.15; // 최소 높이 설정
             var startHeight = elmnt3.offsetHeight * 1.2; // 드래그 시작 시 높이
 
-            function dragMouseDown(e) {
+            function dragTouchStart(e) {
                 e = e || window.event;
                 e.preventDefault();
-                document.onmouseup = closeDragElement;
-                document.onmousemove = elementDrag;
+                elmnt.addEventListener('touchmove', elementDrag, { passive: false });
+                elmnt.addEventListener('touchend', closeDragElement, { passive: false });
+
+                var touch = e.touches[0];
+                pos2 = touch.clientY;
+                pos1 = startHeight - pos2;
             }
 
             function elementDrag(e) {
                 e = e || window.event;
                 e.preventDefault();
-                pos2 = e.clientY;
-                pos1 = startHeight - pos2;
+                var touch = e.touches[0];
+                pos2 = touch.clientY;
                 var newHeight = pos1;
                 console.log(startHeight);
 
@@ -260,8 +264,8 @@
             }
 
             function closeDragElement() {
-                document.onmouseup = null;
-                document.onmousemove = null;
+                elmnt.removeEventListener('touchmove', elementDrag, { passive: false });
+                elmnt.removeEventListener('touchend', closeDragElement, { passive: false });
             }
         }
 
