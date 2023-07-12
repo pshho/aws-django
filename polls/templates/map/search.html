@@ -143,7 +143,7 @@
                 width: 100%;
                 top: auto;
                 bottom: 0;
-                height: 15%;
+                height: 15vh;
             }
 
             .map_real_estate_detail > .map_grouping {
@@ -219,10 +219,10 @@
 
         $('#smart_phone_map').on('click', function () {
             if ($('.map_real_estate_detail').css('height') < '200px') {
-                $('.map_real_estate_detail').css('height', '80%');
+                $('.map_real_estate_detail').css('height', '70vh');
                 $('.map_real_estate_detail > .map_search_view > ul').css('display', 'block');
             } else {
-                $('.map_real_estate_detail').css('height', '15%');
+                $('.map_real_estate_detail').css('height', '15vh');
                 $('.map_real_estate_detail > .map_search_view > ul').css('display', 'none');
             }
         });
