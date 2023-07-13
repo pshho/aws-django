@@ -347,6 +347,12 @@ section > form > .error_data {
     top: -15%;
 }
 
+@media screen and (max-width: 1400px) {
+    body {
+      overflow: hidden;
+    }
+}
+
 @media screen and (max-width: 1200px) {
     .signinup-box {
         width: 85%;
