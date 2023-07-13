@@ -13,6 +13,7 @@
 #signup {text-align: center;}
 
 body {
+    -webkit-overflow: hidden;
     overflow: hidden;
     font-family: 'GangwonEdu_OTFBoldA';
 }
@@ -142,7 +143,7 @@ body {
     padding-top: 8px;
     font-size: 16px;
     letter-spacing: .15px;
-    border: none;
+    border: 0.5px;
     outline: none;
     background-color: rgb(250, 250, 250);
     transition: .25s ease;
@@ -153,6 +154,7 @@ body {
 }
 
 .login_container > form > div > input:focus {
+    border: 0.5px;
     -webkit-box-shadow: inset 4px 4px 4px gray, inset -4px -4px 4px white;
     box-shadow: inset 4px 4px 4px gray, inset -4px -4px 4px white;
 }
@@ -294,7 +296,7 @@ body {
     padding: 8px 15px;
     font-size: 16px;
     letter-spacing: .15px;
-    border: none;
+    border: 0.5px;
     outline: none;
     background-color: rgb(250, 250, 250);
     transition: .25s ease;
@@ -305,6 +307,7 @@ body {
 }
 
 .signup > form > div > input:focus {
+    border: 0.5px;
     -webkit-box-shadow: inset 4px 4px 4px gray, inset -4px -4px 4px white;
     box-shadow: inset 4px 4px 4px gray, inset -4px -4px 4px white;
 }
@@ -345,12 +348,6 @@ section > form > .error_data {
     font-size: 0.8rem;
     position: absolute;
     top: -15%;
-}
-
-@media screen and (max-width: 1400px) {
-    body {
-      overflow: hidden;
-    }
 }
 
 @media screen and (max-width: 1200px) {
