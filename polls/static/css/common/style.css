@@ -348,6 +348,10 @@ section > form > .error_data {
 }
 
 @media screen and (max-width: 1200px) {
+    body {
+        overflow: hidden;
+    }
+
     .signinup-box {
         width: 85%;
     }
@@ -355,9 +359,25 @@ section > form > .error_data {
     .signinup-box2 {
         width: 85%;
     }
+
+    .login_container > form > div > input,
+    .signup > form > div > input {
+        -webkit-box-shadow: inset 2px 2px 4px #ccc, inset -2px -2px 4px white;
+        box-shadow: inset 2px 2px 4px #ccc, inset -2px -2px 4px white;
+    }
+
+    .login_container > form > div > input:focus,
+    .signup > form > div > input:focus {
+        -webkit-box-shadow: inset 4px 4px 4px gray, inset -4px -4px 4px white;
+        box-shadow: inset 4px 4px 4px gray, inset -4px -4px 4px white;
+    }
 }
 
 @media screen and (max-width: 1050px) {
+    body {
+        overflow: hidden;
+    }
+
     .signinup-box {
         width: 97%;
     }
@@ -386,14 +406,26 @@ section > form > .error_data {
     .signup > form > div > input, .signup > form > .business-license-field > input,
     .signup > form > .business-license-field > label {
         font-size: 12px;
+        -webkit-box-shadow: inset 2px 2px 4px #ccc, inset -2px -2px 4px white;
+        box-shadow: inset 2px 2px 4px #ccc, inset -2px -2px 4px white;
     }
 
     section > form > .error_data {
         font-size: 0.6rem;
     }
+
+    .login_container > form > div > input:focus,
+    .signup > form > div > input:focus {
+        -webkit-box-shadow: inset 4px 4px 4px gray, inset -4px -4px 4px white;
+        box-shadow: inset 4px 4px 4px gray, inset -4px -4px 4px white;
+    }
 }
 
 @media screen and (max-width: 768px) {
+    body {
+        overflow: hidden;
+    }
+
     .login_container > h1 {
         font-size: 1.2rem;
     }
@@ -401,9 +433,26 @@ section > form > .error_data {
     .login_signin_container, .login_signup_container {
         font-size: 0.8rem;
     }
+
+
+    .login_container > form > div > input,
+    .signup > form > div > input {
+        -webkit-box-shadow: inset 2px 2px 4px #ccc, inset -2px -2px 4px white;
+        box-shadow: inset 2px 2px 4px #ccc, inset -2px -2px 4px white;
+    }
+
+    .login_container > form > div > input:focus,
+    .signup > form > div > input:focus {
+        -webkit-box-shadow: inset 4px 4px 4px gray, inset -4px -4px 4px white;
+        box-shadow: inset 4px 4px 4px gray, inset -4px -4px 4px white;
+    }
 }
 
 @media screen and (max-width: 568px) {
+    body {
+        overflow: hidden;
+    }
+
     .login_logo_container {
         width: 100%;
     }
@@ -414,6 +463,8 @@ section > form > .error_data {
 
     .login_container > form > div > input {
         padding-left: 8px;
+        -webkit-box-shadow: inset 2px 2px 4px #ccc, inset -2px -2px 4px white;
+        box-shadow: inset 2px 2px 4px #ccc, inset -2px -2px 4px white;
     }
 
     .signinup_button {
@@ -437,6 +488,8 @@ section > form > .error_data {
     .signup > form > div > input {
         padding: 4px 7.5px;
         margin-right: 5px;
+        -webkit-box-shadow: inset 2px 2px 4px #ccc, inset -2px -2px 4px white;
+        box-shadow: inset 2px 2px 4px #ccc, inset -2px -2px 4px white;
     }
 
     .signup > form > .business-license-field > input {
@@ -447,6 +500,12 @@ section > form > .error_data {
     .signup > form > div,
     .signup > form > .business-license-field {
         width: 100%;
+    }
+
+    .login_container > form > div > input:focus,
+    .signup > form > div > input:focus {
+        -webkit-box-shadow: inset 4px 4px 4px gray, inset -4px -4px 4px white;
+        box-shadow: inset 4px 4px 4px gray, inset -4px -4px 4px white;
     }
 
 }
