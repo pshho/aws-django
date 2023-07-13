@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     ".ap-northeast-2.compute.amazonaws.com",
+    "http://ec2-3-37-74-149.ap-northeast-2.compute.amazonaws.com/"
 ]
 
 os.environ["DJANGO_ALLOW_ASYNC_UNSAFE"] = 'true'
@@ -61,6 +62,7 @@ INSTALLED_APPS = [
     'map',
     'common',
     'koreaCalendar',
+    'corsheaders',
 
 
 ]
@@ -73,6 +75,12 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+]
+
+CORS_ALLOWED_ORIGINS = [
+    ".ap-northeast-2.compute.amazonaws.com",
+    "http://ec2-3-37-74-149.ap-northeast-2.compute.amazonaws.com/"
 ]
 
 ROOT_URLCONF = 'config.urls'
