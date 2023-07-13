@@ -240,15 +240,19 @@
                 });
 
                 const targetDiv = document.querySelector('.main_index > .main_top_index > .main_bottom_index > div > div:nth-of-type(2)');
+                let touchStartTime;
 
-                // 터치 이벤트 감지
-                // 터치 이벤트 감지
-                targetDiv.addEventListener('touchstart', function() {
-                    targetDiv.classList.add('active');
+                targetDiv.addEventListener('touchstart', function(event) {
+                    touchStartTime = new Date().getTime();
                 });
 
-                targetDiv.addEventListener('touchend', function() {
-                    targetDiv.classList.remove('active');
+                targetDiv.addEventListener('touchend', function(event) {
+                    const touchEndTime = new Date().getTime();
+                    const touchDuration = touchEndTime - touchStartTime;
+
+                    if (touchDuration < 500) { // 500ms (0.5초) 이내에 뗀 경우에만 작동
+                        targetDiv.classList.toggle('active');
+                    }
                 });
               </script>
 
