@@ -996,16 +996,13 @@ ul > li {
     }
 }
 
-.main_index > .main_top_index > .main_bottom_index > div > div:nth-of-type(2).active {
+.touchDiv.active {
     opacity: 1;
     transition: opacity .8s ease-in-out;
 }
 
 @media screen and (max-width: 1290px) {
     .main_index > .main_top_index > .main_bottom_index > div:hover > div:nth-of-type(2) {
-    }
-
-    .main_index > .main_top_index > .main_bottom_index > div:hover > div:last-of-type {
     }
 
     .main_index > .main_top_index > .main_bottom_index {

@@ -55,7 +55,7 @@
                         <p>청약</p>
                         <p>청약 일정과<br>점수를 확인해보세요</p>
                     </div>
-                    <div class="main_subscription_menu">
+                    <div class="main_subscription_menu touchDiv">
                         <p>청약</p>
                         <div class="main_subscription_subMenu">
                             <div></div>
@@ -73,7 +73,7 @@
                         <p>알려드려요</p>
                         <p>여러분이 놓친<br>부동산 정보 알아가세요</p>
                     </div>
-                    <div class="main_notice_menu">
+                    <div class="main_notice_menu touchDiv">
                         <p>알려드려요</p>
                         <div class="main_notice_subMenu">
                             <div></div>
@@ -90,7 +90,7 @@
                         <p>커뮤니티</p>
                         <p>자유롭게 생생하게<br>인테리어까지</p>
                     </div>
-                    <div class="main_community_menu">
+                    <div class="main_community_menu touchDiv">
                         <p>커뮤니티</p>
                         <div class="main_community_subMenu">
                             <div></div>
@@ -110,7 +110,7 @@
                         <p>고객서비스</p>
                         <p>안녕하세요<br>여러분의 집집입니다</p>
                     </div>
-                    <div class="main_customer_service_menu">
+                    <div class="main_customer_service_menu touchDiv">
                         <p>고객서비스</p>
                         <div class="main_customer_service_subMenu">
                             <div></div>
@@ -186,78 +186,78 @@
                     <span class="next">>></span>
                 </p>
             </section>
+        </section>
+    </section>
+    <script>
+        $(document).ready(function() {
+            let slides = $('.slides');
+            let slide = $('.slides li');
+            let currentIdx = 0;
+            let slideCount = slide.length;
+            let preBtn = $('.prev');
+            let slideWidth = 300; /* 사진 길이 */
+            let slideMargin = 30;
+            let nextBtn = $('.next');
+            let timer;
 
-              <script>
-                $(document).ready(function() {
-                  let slides = $('.slides');
-                  let slide = $('.slides li');
-                  let currentIdx = 0;
-                  let slideCount = slide.length;
-                  let preBtn = $('.prev');
-                  let slideWidth = 300; /* 사진 길이 */
-                  let slideMargin = 30;
-                  let nextBtn = $('.next');
-                  let timer;
+            slides.css('width', (slideWidth + slideMargin) * slideCount - slideMargin + 'px');
 
-                  slides.css('width', (slideWidth + slideMargin) * slideCount - slideMargin + 'px');
+            function moveSlide(num) {
+                slides.css('left', -num * (slideWidth + slideMargin) + 'px');
+                currentIdx = num;
+            }
 
-                  function moveSlide(num) {
-                    slides.css('left', -num * (slideWidth + slideMargin) + 'px');
-                    currentIdx = num;
-                  }
+            nextBtn.on('click', function() {
+                if (currentIdx < slideCount - 3) {
+                    moveSlide(currentIdx + 1);
+                } else {
+                    moveSlide(0);
+                }
+            });
 
-                  nextBtn.on('click', function() {
+            preBtn.on('click', function() {
+                if (currentIdx > 0) {
+                    moveSlide(currentIdx - 1);
+                } else {
+                    moveSlide(slideCount - 3);
+                }
+            });
+
+            function startAutoSlide() {
+                timer = setInterval(function() {
                     if (currentIdx < slideCount - 3) {
-                      moveSlide(currentIdx + 1);
-                    } else {
-                      moveSlide(0);
-                    }
-                  });
-
-                  preBtn.on('click', function() {
-                    if (currentIdx > 0) {
-                      moveSlide(currentIdx - 1);
-                    } else {
-                      moveSlide(slideCount - 3);
-                    }
-                  });
-
-                  function startAutoSlide() {
-                    timer = setInterval(function() {
-                      if (currentIdx < slideCount - 3) {
                         moveSlide(currentIdx + 1);
-                      } else {
+                    } else {
                         moveSlide(0);
-                      }
-                    }, 3000); /* 넘기는 밀리세턴드 */
-                  }
+                    }
+                }, 3000); /* 넘기는 밀리세턴드 */
+            }
 
-                  function stopAutoSlide() {
-                    clearInterval(timer);
-                  }
+            function stopAutoSlide() {
+                clearInterval(timer);
+            }
 
-                  startAutoSlide();
-                });
+            startAutoSlide();
 
-                const targetDiv = document.querySelector('.main_index > .main_top_index > .main_bottom_index > div > div:nth-of-type(2)');
-                let touchStartTime;
+            const targetDiv = document.querySelectorAll('.touchDiv');
+            let touchStartTime;
 
-                targetDiv.addEventListener('touchstart', function(event) {
+            for (let i = 0; i < targetDiv.length; i++) {
+                targetDiv[i].addEventListener('touchstart', function(event) {
                     touchStartTime = new Date().getTime();
                 });
 
-                targetDiv.addEventListener('touchend', function(event) {
+                targetDiv[i].addEventListener('touchend', function(event) {
                     const touchEndTime = new Date().getTime();
                     const touchDuration = touchEndTime - touchStartTime;
 
                     if (touchDuration < 500) { // 500ms (0.5초) 이내에 뗀 경우에만 작동
-                        targetDiv.classList.toggle('active');
+                        targetDiv[i].classList.toggle('active');
                     }
                 });
-              </script>
-
-        </section>
-    </section>
+            }
+        });
+      </script>
 {% include 'poll/footer.html' %}
 </body>
 
