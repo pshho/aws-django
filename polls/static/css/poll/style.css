@@ -996,3 +996,242 @@ ul > li {
     }
 }
 
+.main_index > .main_top_index > .main_bottom_index > div > div:nth-of-type(2).active {
+    opacity: 1;
+    transition: opacity .8s ease-in-out;
+}
+
+@media screen and (max-width: 1290px) {
+    .main_index > .main_top_index > .main_bottom_index > div:hover > div:nth-of-type(2) {
+    }
+
+    .main_index > .main_top_index > .main_bottom_index > div:hover > div:last-of-type {
+    }
+
+    .main_index > .main_top_index > .main_bottom_index {
+        width: 80%;
+    }
+
+    .main_index > .main_top_index > .main_bottom_index > .main_subscription {
+        margin-left: 20px;
+    }
+
+    .main_index > .main_top_index > .main_bottom_index > .main_customer_service {
+        margin-right: 20px;
+    }
+
+    .main_index > .main_top_index > .main_bottom_index > div > .main_subscription_menu > .main_subscription_subMenu > div:first-of-type {
+        border-right: 4.15vw solid transparent;
+        border-bottom: 4vw solid transparent;
+        border-top: 4vw solid rgb(121, 203, 196);
+        border-left: 4vw solid rgb(121, 203, 196);
+    }
+
+    .main_index > .main_top_index > .main_bottom_index > div > .main_notice_menu > .main_notice_subMenu > div:first-of-type {
+        border-right: 4.15vw solid transparent;
+        border-bottom: 4vw solid transparent;
+        border-top: 4vw solid rgb(59, 189, 228);
+        border-left: 4vw solid rgb(59, 189, 228);
+    }
+
+    .main_index > .main_top_index > .main_bottom_index > div > .main_community_menu > .main_community_subMenu > div:first-of-type {
+        border-right: 4.15vw solid transparent;
+        border-bottom: 4vw solid transparent;
+        border-top: 4vw solid rgb(255, 162, 82);
+        border-left: 4vw solid rgb(255, 162, 82);
+    }
+
+    .main_index > .main_top_index > .main_bottom_index > div > .main_customer_service_menu > .main_customer_service_subMenu > div:first-of-type {
+        border-right: 4.15vw solid transparent;
+        border-bottom: 4vw solid transparent;
+        border-top: 4vw solid rgb(237, 95, 107);
+        border-left: 4vw solid rgb(237, 95, 107);
+    }
+
+    .main_index > .main_top_index > .main_bottom_index > div > .main_subscription_menu > .main_subscription_subMenu > div:last-of-type {
+        border-right: 4vw solid rgb(121, 203, 196);
+        border-bottom: 4vw solid transparent;
+        border-top: 4vw solid rgb(121, 203, 196);
+        border-left: 4vw solid transparent;
+    }
+
+    .main_index > .main_top_index > .main_bottom_index > div > .main_notice_menu > .main_notice_subMenu > div:last-of-type {
+        border-right: 4vw solid rgb(59, 189, 228);
+        border-bottom: 4vw solid transparent;
+        border-top: 4vw solid rgb(59, 189, 228);
+        border-left: 4vw solid transparent;
+    }
+
+    .main_index > .main_top_index > .main_bottom_index > div > .main_community_menu > .main_community_subMenu > div:last-of-type {
+        border-right: 4vw solid rgb(255, 162, 82);
+        border-bottom: 4vw solid transparent;
+        border-top: 4vw solid rgb(255, 162, 82);
+        border-left: 4vw solid transparent;
+    }
+
+    .main_index > .main_top_index > .main_bottom_index > div > .main_customer_service_menu > .main_customer_service_subMenu > div:last-of-type {
+        border-right: 4vw solid rgb(237, 95, 107);
+        border-bottom: 4vw solid transparent;
+        border-top: 4vw solid rgb(237, 95, 107);
+        border-left: 4vw solid transparent;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .main_index > .main_top_index > .main_login_register {
+        width: 24%;
+    }
+
+    .main_index > .main_top_index > .main_bottom_index {
+        width: 90%;
+    }
+
+    .main_index > .main_top_index > .main_bottom_index > .main_subscription {
+        margin-left: 15px;
+    }
+
+    .main_index > .main_top_index > .main_bottom_index > .main_customer_service {
+        margin-right: 15px;
+    }
+
+    .main_index > .main_top_index > .main_bottom_index > div > .main_subscription_menu > .main_subscription_subMenu > div:first-of-type {
+        border-right: 4.65vw solid transparent;
+        border-bottom: 4.5vw solid transparent;
+        border-top: 4.5vw solid rgb(121, 203, 196);
+        border-left: 4.5vw solid rgb(121, 203, 196);
+    }
+
+    .main_index > .main_top_index > .main_bottom_index > div > .main_notice_menu > .main_notice_subMenu > div:first-of-type {
+        border-right: 4.65vw solid transparent;
+        border-bottom: 4.5vw solid transparent;
+        border-top: 4.5vw solid rgb(59, 189, 228);
+        border-left: 4.5vw solid rgb(59, 189, 228);
+    }
+
+    .main_index > .main_top_index > .main_bottom_index > div > .main_community_menu > .main_community_subMenu > div:first-of-type {
+        border-right: 4.65vw solid transparent;
+        border-bottom: 4.5vw solid transparent;
+        border-top: 4.5vw solid rgb(255, 162, 82);
+        border-left: 4.5vw solid rgb(255, 162, 82);
+    }
+
+    .main_index > .main_top_index > .main_bottom_index > div > .main_customer_service_menu > .main_customer_service_subMenu > div:first-of-type {
+        border-right: 4.65vw solid transparent;
+        border-bottom: 4.5vw solid transparent;
+        border-top: 4.5vw solid rgb(237, 95, 107);
+        border-left: 4.5vw solid rgb(237, 95, 107);
+    }
+
+    .main_index > .main_top_index > .main_bottom_index > div > .main_subscription_menu > .main_subscription_subMenu > div:last-of-type {
+        border-right: 4.5vw solid rgb(121, 203, 196);
+        border-bottom: 4.5vw solid transparent;
+        border-top: 4.5vw solid rgb(121, 203, 196);
+        border-left: 4.5vw solid transparent;
+    }
+
+    .main_index > .main_top_index > .main_bottom_index > div > .main_notice_menu > .main_notice_subMenu > div:last-of-type {
+        border-right: 4.5vw solid rgb(59, 189, 228);
+        border-bottom: 4.5vw solid transparent;
+        border-top: 4.5vw solid rgb(59, 189, 228);
+        border-left: 4.5vw solid transparent;
+    }
+
+    .main_index > .main_top_index > .main_bottom_index > div > .main_community_menu > .main_community_subMenu > div:last-of-type {
+        border-right: 4.5vw solid rgb(255, 162, 82);
+        border-bottom: 4.5vw solid transparent;
+        border-top: 4.5vw solid rgb(255, 162, 82);
+        border-left: 4.5vw solid transparent;
+    }
+
+    .main_index > .main_top_index > .main_bottom_index > div > .main_customer_service_menu > .main_customer_service_subMenu > div:last-of-type {
+        border-right: 4.5vw solid rgb(237, 95, 107);
+        border-bottom: 4.5vw solid transparent;
+        border-top: 4.5vw solid rgb(237, 95, 107);
+        border-left: 4.5vw solid transparent;
+    }
+}
+
+@media screen and (max-width: 1040px) {
+    .main_index > .main_top_index > .main_bottom_index {
+        width: 100%;
+    }
+
+    .main_index > .main_top_index > .main_bottom_index > .main_subscription {
+        margin-left: 5px;
+    }
+
+    .main_index > .main_top_index > .main_bottom_index > .main_customer_service {
+        margin-right: 5px;
+    }
+
+    .main_index > .main_top_index > .main_bottom_index > div > .main_subscription_menu > .main_subscription_subMenu > div:first-of-type {
+        border-right: 5.15vw solid transparent;
+        border-bottom: 5vw solid transparent;
+        border-top: 5vw solid rgb(121, 203, 196);
+        border-left: 5vw solid rgb(121, 203, 196);
+    }
+
+    .main_index > .main_top_index > .main_bottom_index > div > .main_notice_menu > .main_notice_subMenu > div:first-of-type {
+        border-right: 5.15vw solid transparent;
+        border-bottom: 5vw solid transparent;
+        border-top: 5vw solid rgb(59, 189, 228);
+        border-left: 5vw solid rgb(59, 189, 228);
+    }
+
+    .main_index > .main_top_index > .main_bottom_index > div > .main_community_menu > .main_community_subMenu > div:first-of-type {
+        border-right: 5.15vw solid transparent;
+        border-bottom: 5vw solid transparent;
+        border-top: 5vw solid rgb(255, 162, 82);
+        border-left: 5vw solid rgb(255, 162, 82);
+    }
+
+    .main_index > .main_top_index > .main_bottom_index > div > .main_customer_service_menu > .main_customer_service_subMenu > div:first-of-type {
+        border-right: 5.15vw solid transparent;
+        border-bottom: 5vw solid transparent;
+        border-top: 5vw solid rgb(237, 95, 107);
+        border-left: 5vw solid rgb(237, 95, 107);
+    }
+
+    .main_index > .main_top_index > .main_bottom_index > div > .main_subscription_menu > .main_subscription_subMenu > div:last-of-type {
+        border-right: 5vw solid rgb(121, 203, 196);
+        border-bottom: 5vw solid transparent;
+        border-top: 5vw solid rgb(121, 203, 196);
+        border-left: 5vw solid transparent;
+    }
+
+    .main_index > .main_top_index > .main_bottom_index > div > .main_notice_menu > .main_notice_subMenu > div:last-of-type {
+        border-right: 5vw solid rgb(59, 189, 228);
+        border-bottom: 5vw solid transparent;
+        border-top: 5vw solid rgb(59, 189, 228);
+        border-left: 5vw solid transparent;
+    }
+
+    .main_index > .main_top_index > .main_bottom_index > div > .main_community_menu > .main_community_subMenu > div:last-of-type {
+        border-right: 5vw solid rgb(255, 162, 82);
+        border-bottom: 5vw solid transparent;
+        border-top: 5vw solid rgb(255, 162, 82);
+        border-left: 5vw solid transparent;
+    }
+
+    .main_index > .main_top_index > .main_bottom_index > div > .main_customer_service_menu > .main_customer_service_subMenu > div:last-of-type {
+        border-right: 5vw solid rgb(237, 95, 107);
+        border-bottom: 5vw solid transparent;
+        border-top: 5vw solid rgb(237, 95, 107);
+        border-left: 5vw solid transparent;
+    }
+}
+
+@media screen and (max-width: 586px) {
+    .main_index > .main_top_index > .main_middle_index > div > p {
+        font-size: 1.1rem;
+    }
+
+    .main_index > .main_top_index > .main_middle_index > div > form > ul > .main_middle_search {
+        width: 15%;
+    }
+
+    .main_index > .main_top_index > .main_login_register {
+        font-size: 0.9rem;
+        width: 35%;
+    }
+}

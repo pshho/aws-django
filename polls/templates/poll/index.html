@@ -238,6 +238,18 @@
 
                   startAutoSlide();
                 });
+
+                const targetDiv = document.querySelector('.main_index > .main_top_index > .main_bottom_index > div');
+
+                // 터치 이벤트 감지
+                // 터치 이벤트 감지
+                targetDiv.addEventListener('touchstart', function() {
+                    targetDiv.classList.add('active');
+                });
+
+                targetDiv.addEventListener('touchend', function() {
+                    targetDiv.classList.remove('active');
+                });
               </script>
 
         </section>
