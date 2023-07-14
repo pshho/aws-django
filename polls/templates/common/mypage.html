@@ -83,9 +83,10 @@
         }
 
         .mypage_write > div {
-            width: 65%;
+            width: 75%;
             position: absolute;
-            right: -66%;
+            top: 30px;
+            right: 0;
             background-color: white;
             border-radius: 12px;
             box-shadow: 8px 8px 12px #d1d9e6, -8px -8px 12px white;
@@ -103,6 +104,27 @@
 
         .mypage_write > div > p > a {
             color: black;
+        }
+
+        @media screen and (max-width: 1200px) {
+            .mypage-box {
+                width: 90%;
+            }
+        }
+
+        @media screen and (max-width: 586px) {
+            .mypage {
+                font-size: 15px;
+            }
+
+            .mypage_but > a {
+                width: 35%;
+            }
+
+            .mypage_write > div {
+                width: 90%;
+                font-size: 13px;
+            }
         }
     </style>
     <script src="https://code.jquery.com/jquery-3.7.0.js"

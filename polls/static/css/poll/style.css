@@ -439,7 +439,7 @@ ul > li {
 .main_index > .main_top_index > .main_login_register {
     font-size: 1.2rem;
     background-color: rgb(117, 168, 169);
-    width: 13%;
+    width: 16%;
     position: absolute;
     top: 3%;
     right: 0;
@@ -469,6 +469,10 @@ ul > li {
 .main_index > .main_top_index > .main_login_register > ul > li:first-of-type {
     border-right: 1px solid white;
     padding-right: 10px;
+}
+
+.main_index > .main_top_index > .main_login_register > ul > li:first-of-type > a {
+    flex: 1;
 }
 /* 상단 배경, 로고, 로그인/회원가입 끝 */
 
@@ -867,6 +871,7 @@ ul > li {
 
 .main_index > .main_top_index > .main_login_register > ul > .logmy > a:first-of-type {
     width: 35%;
+    padding-left: 35px;
 }
 
 .main_index > .main_top_index > .main_login_register > ul > li > .mypage_view {
@@ -1076,7 +1081,7 @@ ul > li {
 
 @media screen and (max-width: 1200px) {
     .main_index > .main_top_index > .main_login_register {
-        width: 24%;
+        width: 23%;
     }
 
     .main_index > .main_top_index > .main_bottom_index {
@@ -1318,6 +1323,14 @@ ul > li {
     .slide_wrapper {
         width: 490px;
     }
+
+    .main_index > .main_top_index > .main_login_register {
+        width: 30%;
+    }
+
+    .main_index > .main_top_index > .main_login_register > ul > .logmy > a:first-of-type {
+        padding-left: 18px;
+    }
 }
 
 @media screen and (max-width: 800px) {
@@ -1347,6 +1360,18 @@ ul > li {
     .main_index > .main_top_index > .main_login_register {
         font-size: 0.9rem;
         width: 35%;
+    }
+
+    .main_index > .main_top_index > .main_login_register > ul > li:first-of-type {
+        padding-right: 0;
+    }
+
+    .main_index > .main_top_index > .main_login_register > ul > li:first-of-type > a {
+        flex: 1;
+    }
+
+    .main_index > .main_top_index > .main_login_register > ul > .logmy > a:first-of-type {
+        padding-left: 8px;
     }
 
     .slide_wrapper {
