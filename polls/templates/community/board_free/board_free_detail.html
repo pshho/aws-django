@@ -70,7 +70,7 @@
         <div class="comment">
             {% if ans.author == request.user %}
             <button class="custombutton delete" data-uri="{% url 'community:comment_delete' ans.id %}">삭제</button>
-            <button class="custombutton update" data-uri="{% url 'community:comment_update' ans.id %}">수정</button>
+            <button class="custombutton update delete" data-uri="{% url 'community:comment_update' ans.id %}">수정</button>
             {% endif %}
             <p>작성자: {{ ans.author }}</p>
             <p>{{ ans.content }}</p>
