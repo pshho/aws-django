@@ -252,7 +252,11 @@
                     const touchDuration = touchEndTime - touchStartTime;
 
                     if (touchDuration < 500) { // 500ms (0.5초) 이내에 뗀 경우에만 작동
-                        targetDiv[i].classList.toggle('active');
+                        if (targetDiv[i].classList.contains('active')) {
+                            targetDiv[i].classList.remove('active');
+                        } else {
+                            targetDiv[i].classList.add('active');
+                        }
                     }
                 });
             }

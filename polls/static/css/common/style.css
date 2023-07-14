@@ -154,7 +154,6 @@ body {
 }
 
 .login_container > form > div > input:focus {
-    border: 0.5px;
     -webkit-box-shadow: inset 4px 4px 4px gray, inset -4px -4px 4px white;
     box-shadow: inset 4px 4px 4px gray, inset -4px -4px 4px white;
 }
