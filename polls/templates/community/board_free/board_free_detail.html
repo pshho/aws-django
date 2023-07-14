@@ -112,7 +112,7 @@
       $(document).ready(function(){
             $('.delete').click(function(e){  //삭제 버튼을 클릭하면
                 e.preventDefault();  // 기본 동작인 링크 이동을 중지합니다.
-                if(confirm('정말 탈퇴하시겠습니까?')){
+                if(confirm('정말 수정 및 삭제하시겠습니까?')){
                     location.href=$(this).data('uri'); //현재 대상 객체의 주소를 이동
                 }
             });
