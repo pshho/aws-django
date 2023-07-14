@@ -106,7 +106,17 @@
     }
 
     .custombutton {
-        width: 10%;
+        width: 8%;
         font-size: 0.8rem;
+    }
+
+    section > form > .custombutton {
+        padding: 5px;
+        font-size: 13px;
+        width: 13%;
+    }
+
+    .update {
+        right: 10%;
     }
 }

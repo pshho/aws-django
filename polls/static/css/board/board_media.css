@@ -98,7 +98,16 @@
     }
 
     .custombutton {
-        width: 10%;
+        width: 8%;
         font-size: 0.8rem;
+    }
+
+    .comment-form button {
+        padding: 5px 10px;
+        font-size: 13px;
+    }
+
+    .update {
+        right: 10%;
     }
 }
