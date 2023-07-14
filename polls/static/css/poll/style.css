@@ -1268,6 +1268,7 @@ ul > li {
     .main_index > .main_top_index > .main_bottom_index > div > div:first-of-type > p:first-of-type {
         font-size: 1.4rem;
         margin-top: 15px;
+        padding-bottom: 10px;
     }
 
     .main_index > .main_top_index > .main_bottom_index > div > div:first-of-type > p:last-of-type {
@@ -1304,7 +1305,7 @@ ul > li {
     .main_index > .main_top_index > .main_bottom_index > div > .main_notice_menu > div:last-of-type > p,
     .main_index > .main_top_index > .main_bottom_index > div > .main_community_menu > div:last-of-type > p,
     .main_index > .main_top_index > .main_bottom_index > div > .main_customer_service_menu > div:last-of-type > p {
-        margin: 15px 10px;
+        margin: auto 10px;
     }
 
     .main_index > .main_top_index > .main_bottom_index > div > .main_subscription_menu > .main_subscription_subMenu,
